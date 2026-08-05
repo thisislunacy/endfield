@@ -33,6 +33,10 @@ rustPlatform.buildRustPackage {
   cargoRoot = "src-tauri";
   buildAndTestSubdir = "src-tauri";
 
+  buildFeatures = [
+    "tauri/custom-protocol"
+  ];
+
   cargoLock = {
     lockFile = ./src-tauri/Cargo.lock;
   };
