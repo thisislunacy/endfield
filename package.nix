@@ -103,6 +103,14 @@ EOF
     runHook postInstall
   '';
 
+  preFixup = ''
+    gappsWrapperArgs+=(
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [
+        libayatana-appindicator
+      ]}"
+    )
+  '';
+
   meta = {
     description = "Unofficial launcher for Arknights: Endfield on Linux";
     homepage = "https://github.com/thisislunacy/endfield";
